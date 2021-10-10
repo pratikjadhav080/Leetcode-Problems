@@ -24,6 +24,7 @@ var isPalindrome = function (head) {
         
     }
     
+    //below IF loop is specially for the linkedlist which has odd number of elements
     if(fast && !fast.next){
         slow = slow.next
     }
