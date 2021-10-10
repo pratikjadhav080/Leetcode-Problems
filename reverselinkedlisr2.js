@@ -6,52 +6,48 @@
  * }
  */
 /**
-//  * @param {ListNode} head
-//  * @param {number} left
-//  * @param {number} right
-//  * @return {ListNode}
-//  */
-
-
+ * @param {ListNode} head
+ * @param {number} left
+ * @param {number} right
+ * @return {ListNode}
+ */
  var reverseBetween = function(head, left, right) {
     
     if(left==right) return head;
 
-
     let current = head;
-    let flag = false
     let i=1;
+    let pre;
+    let flag = false
     
     while(i<left){
         flag = true
+        pre = current
         current=current.next
         i++
     }
 
-
     let a = current
-    let prev = a
+    let prev = null
     let post = null
     i=0
-    loop = right-left // 2
+    loop = right-left 
     
     while(i<=loop){
-        
         post = current.next
         current.next = prev 
         prev = current
         current = post
         i++
     }
-    
+
     a.next = current
     
     if(flag){
-        head.next = prev
+        pre.next = prev
         return head
     }else{
         return prev
     }
 
-    
 };
